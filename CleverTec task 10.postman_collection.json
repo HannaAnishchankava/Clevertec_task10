@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "c832dae9-6a19-4f6e-906d-631ce8e2952a",
+		"name": "CleverTec task 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32024788"
+	},
+	"item": [
+		{
+			"name": "Add new news",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"title\": \"Осьминоги очень умны и похожи на инопланетян: Так может пора перестать их есть?\",\r\n        \"text\": \"Мозг осьминогов работает так же, как у нас, они ласковы, любопытны и игривы, они чувствуют боль и скучают, и, как выяснилось несколько недель назад, они могут даже видеть сны так же, как мы.Такие похожие, но в то же время совершенно непохожие на нас, потому что у них восемь ног, три сердца и сине-зеленая кровь. Австралийский философ Питер Годфри-Смит однажды описал осьминогов как вероятно, наиболее близких к разумным инопланетянам\",\r\n        \"userName\": \"Анищенкова Анна Павловна\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{newsURL}}",
+					"host": [
+						"{{newsURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update title",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Осьминоги очень умны и похожи на инопланетян: Так может пора перестать их есть?, 28-12-2023\",\r\n    \"text\": \"Мозг осьминогов работает так же, как у нас, они ласковы, любопытны и игривы, они чувствуют боль и скучают, и, как выяснилось несколько недель назад, они могут даже видеть сны так же, как мы.Такие похожие, но в то же время совершенно непохожие на нас, потому что у них восемь ног, три сердца и сине-зеленая кровь. Австралийский философ Питер Годфри-Смит однажды описал осьминогов как вероятно, наиболее близких к разумным инопланетянам\",\r\n    \"userName\": \"Анищенкова Анна Павловна\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{newsURL}}/124",
+					"host": [
+						"{{newsURL}}"
+					],
+					"path": [
+						"124"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get data by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "?pageSize=1000",
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all news from pages 2-5 sorted by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{newsURL}}?sortBy=id&pageNo=2&pageSize=4",
+					"host": [
+						"{{newsURL}}"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "id"
+						},
+						{
+							"key": "pageNo",
+							"value": "2"
+						},
+						{
+							"key": "pageSize",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "newsURL",
+			"value": "http://93.84.86.69:9099/news_applications/v1/news",
+			"type": "string"
+		}
+	]
+}
